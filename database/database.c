@@ -6,9 +6,9 @@ struct BASIC_INFO
     int age;
     int id;
 
-    char *name;
-    char *password;
-    char *gender;
+    char name[30];
+    char password[20];
+    char gender[7];
 
     float signals;
     float special;

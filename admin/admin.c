@@ -1,13 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-<<<<<<< Updated upstream
-#include "admin.h"
-int main()
-{
-    //Student* arr = (Student*) malloc(classSize * sizeof( Student));
-    struct Student **arr = malloc(classSize * sizeof(struct Student*));
-    static int num_stu;
-=======
 #include<string.h>
  #include "admin.h"
     //Student* arr = (Student*) malloc(classSize * sizeof( Student));
@@ -15,7 +7,6 @@ int main()
     static int num_stu;
     adminn *ad;
 
->>>>>>> Stashed changes
     //implementation of add function.
     void Add_student (Student *st)
     {
@@ -95,11 +86,6 @@ int main()
         if(flag==0)
             printf("Invalid ID,please try again");
     }
-<<<<<<< Updated upstream
-    return 0;
-}
-
-=======
 //view all records
 void viewAllrecords(){
 
@@ -173,4 +159,3 @@ else{
   }
 
 
->>>>>>> Stashed changes

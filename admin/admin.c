@@ -10,40 +10,43 @@
         int flag=0;
         //check if there is student with the same id;
 
-            printf("Please enter data of student: name,gender ,age,id and grades \n");
-            scanf("%s %s %d %d %f",&st->name,&st->gender,&st->age,&st->id,&st->grade);
-            for(int i=0; i<num_students; i++)
+            printf("Please enter data of student: name,gender ,age,id , grades and password \n");
+            st->name=(char *)malloc(stringsize*sizeof(char));
+//             st->gender=(char *)malloc(stringsize*sizeof(char));
+              st->password=(char *)malloc(stringsize*sizeof(char));
+
+            scanf("%s %c %d %d %f %s",st->name,&st->gender,&st->age,&st->id,&st->grade,st->password);
+            for(int i=0; i<MAXSIZE; i++)
             {
                 if(arr[i].id == st->id)
                 {
                     flag=1;
-                    printf("This ID is already exist,Try again");
+                    printf("This ID is already exist,Try again \n");
                      break;
 
                 }
             }
             //if it's valid Id
-
             if(flag==0)
-            { for(int i=0;i<num_students;i++)
-            {if(arr[i].id== 0 ||arr[i].id==NULL )
-            //student *arr=(student*) realloc (arr,num_students++);
-            {   arr[i]= *st;
+            {
+
+          // arr =  realloc(arr, num_students*sizeof(student));
+arr[num_students]=*st;
+num_students++;
 
 
-                return;
+
+          printf("addition is done correctly \n");
 
             }
-            }
-            printf("addition is done correctly \n");
-            }
 
-    }
+
+            }
 
 void remove_student (int id, student* arr)
     {
         int flag=0;
-        for(int i=0; i<num_students; i++) //check if it's valid Id
+        for(int i=0; i<MAXSIZE; i++) //check if it's valid Id
         {
             if(id== arr[i].id)
             {
@@ -58,7 +61,6 @@ void remove_student (int id, student* arr)
                 arr[i].password=NULL;
                 arr[i].id=0;
 printf("you removed the student successfully");
-                num_students--;
 
                   break;
             }
@@ -89,7 +91,7 @@ printf("you removed the student successfully");
 
         float grade;
 
-         for (int i = 0; i < num_students; i++)
+         for (int i = 0; i < MAXSIZE; i++)
         {
                 if (arr[i].id == id)
                 {
@@ -119,10 +121,10 @@ printf("you removed the student successfully");
 
 
 void viewAllrecords(student *arr){
-for (int i = 0; i < num_students; i++)
+for (int i = 0; i < MAXSIZE; i++)
     {
 if((arr+i)->id!=0){
-             printf("Student name is: %s \n",(arr+i)->name);
+                printf("Student name is: %s \n",(arr+i)->name);
                 printf("Student age is: %d \n",(arr+i)->age);
                 printf("Student ID is: %d \n",arr[i].id);
                 printf("Student total grade is: %f\n",arr[i].grade);
@@ -138,7 +140,7 @@ if((arr+i)->id!=0){
 
 void EditAdminPass(adminn *arr){
 
-         char *newpass = (char *)malloc(strlen((arr+0)->pass) + 1);
+         char *newpass = (char *)malloc(stringsize*sizeof(char));
         (arr+0)->pass=NULL;
          printf("Please enter new password :\n");
         scanf("%s", newpass);
@@ -152,7 +154,7 @@ void EditAdminPass(adminn *arr){
     void viewStu (int id, student *arr)
     {
          int flag=0;
-        for(int i=0; i<num_students; i++) //check if it's valid Id so we can show data.
+        for(int i=0; i<MAXSIZE; i++) //check if it's valid Id so we can show data.
         {
             if(id==arr[i].id)
             {
@@ -167,4 +169,6 @@ void EditAdminPass(adminn *arr){
 
 
         }
+        if (flag == 0)
+            printf("Invalid Id\n");
     }

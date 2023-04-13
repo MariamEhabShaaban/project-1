@@ -4,14 +4,17 @@
 #include <stdlib.h>
 #include"student.h"
 #include "admin.h"
+#include "app.h"
+#define stringsize 20
+
 //#include "../student/student.c"
  //static int num_students; //Size of the memory that will be Allocated.
     static int mode; // Admin OR User?.
     int uchoice; //to choose in User mode
     int achoice; //to choose in admin mode
     int id;
-int main()
-{
+
+
    /*int num_students; //Size of the memory that will be Allocated.
     int mode; // Admin OR User?.
     int uchoice; //to choose in User mode
@@ -21,10 +24,11 @@ int main()
 
    // printf("Enter the number of the Students\n");
     //scanf("%d",&num_students);
+    void MODE(){
 student *arr = (student*)malloc(num_students*sizeof(student));
     adminn *aAdmin= malloc(sizeof(adminn));
     (aAdmin+0)->pass="1234";
-     for(int i=0;i<num_students;i++){
+     /*for(int i=0;i<num_students;i++){
         (arr+i)->age=20;
          (arr+i)->name="mariam ehab";
           (arr+i)->grade=99.5;
@@ -40,12 +44,12 @@ student *arr = (student*)malloc(num_students*sizeof(student));
     if (arr == NULL)
         printf("Memory is not Available");
     if (arr != NULL)
-        printf("Allocating Memory Succeeded\n");
+        printf("Allocating Memory Succeeded\n");*/
     //End of Checking
 while(1){
-        printf("+++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+       printf("=-=-=-=-=-=-=-=\n");
     printf("[1]Admin mode press \n[2] User mode press \n[3]EXIT\n ");
-printf("+++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+printf("=-=-=-=-=-=-=-=\n");
   printf("choose from 1:3\n");
     scanf("%d",&mode);
     switch(mode){
@@ -64,8 +68,7 @@ case 3:
 
     //After this: We will call the functions of Admin and User.
 }
-    return 0;
-}
+    }
 void ADMIN(adminn *ad,student *arr)
 
 {
@@ -73,8 +76,7 @@ void ADMIN(adminn *ad,student *arr)
 student *ptr =&st;
     int tries=0;
 for( tries =0;tries<3;tries++){
-    char *pass_=(char *)malloc(10*sizeof(char));
-
+    char *pass_=(char *)malloc(stringsize*sizeof(char));
       printf("Enter admin password\n");
       scanf("%s",pass_);
         if (strcmp(pass_, (ad+0)->pass) == 0)
@@ -89,14 +91,14 @@ for( tries =0;tries<3;tries++){
         else{
 
 
-printf("+++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+printf("=-=-=-=-=-=-=-=\n");
         printf("[1]To Add Student Record \n");
         printf("[2]To Remove Student Record \n");
         printf("[3]To View Student Record \n");
         printf("[4]To View All Records \n");
         printf("[5]To Edit Admin Password \n");
         printf("[6]To Edit Student Grade \n");
-printf("+++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+printf("=-=-=-=-=-=-=-=\n");
 printf("choose from 1:6\n");
         scanf("%d", &achoice);
 
@@ -142,20 +144,21 @@ case 3:
 void USER(student *arr){
   printf("Enter your ID\n");
         scanf("%d", &id);
-       char *pass = (char *)malloc(strlen((arr+id-1)->password) + 1);
+       char *pass = (char *)malloc(stringsize*sizeof(char));
 
         printf("Enter password %s: \n",pass);
          scanf("%s", pass);
         if (strcmp(pass, (arr+id-1)->password) == 0){
 
-printf("+++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+printf("=-=-=-=-=-=-=-=\n");
  printf("[1]To view Your Record \n");
         printf("[2]To Edit Your Password \n");
         printf("[3]To Edit Your Name \n");
          printf("choose from 1:3\n");
+printf("=-=-=-=-=-=-=-=\n");
         scanf("%d", &uchoice);
 
-printf("+++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+
 
 switch(uchoice){
         case 1:

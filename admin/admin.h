@@ -1,26 +1,12 @@
 
-#ifndef admin.h
-#define admin.h
-#define  classSize 25
-typedef struct student  //fields of student structure.
-{
-    char *name;
-    int  grade;
-    int id;
-    char gender;
-    int age;
-    char *password;
-} Student;
-typedef struct Admin  //fields of student structure.
-{
-   char *pass;
-}adminn;
+#include "database.h"
 
-void Add_student (Student *st); //prototype of add function
-void remove_student (int id); //prototype of remove function
-void viewStu (int id);
-void viewAllrecords();
-void EditAdminPass();
-void EditStuGrade();  //prototype of view student record function
+static num_students=10;
+void Add_student (student *st,student *arr); //prototype of add function
+void remove_student (int id,student *arr); //prototype of remove function
+void viewStu ( int id,student *arr);
+void viewAllrecords(student *arr);
+void EditAdminPass(adminn *arr);
+void EditStuGrade(student *st,int id);  //prototype of view student record function
 
-#endif
+

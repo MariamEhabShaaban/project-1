@@ -1,38 +1,18 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include"admin.h"
-void viewStu (int id, student *arr)
-    {
-         int flag=0;
-        for(int i=1; i<=num_students; i++) //check if it's valid Id so we can show data.
-        {
-            if(id==arr[i].id)
-            {
-                flag=1;
-                printf("Student name is: %s \n",arr[i].name);
-                printf("Student age is: %d \n",arr[i].age);
-                printf("Student ID is: %d \n",arr[i].id);
-                printf("Student total grade is: %f \n",arr[i].grade);
-                printf("Student gender is: %c \n",arr[i].gender);
-               break;
-            }
 
 
-        }
-        //if it 's not valid Id print warning message
-        if(flag==0)
-            printf("Invalid ID,please try again \n");
-    }
-
-void Add_student (student *st,student *arr)
+    void Add_student (student *st,student *arr)
     {
         int flag=0;
         //check if there is student with the same id;
 
-            printf("Please enter your ID ");
-            scanf("%d",&st->id);
-            for(int i=1; i<=num_students; i++)
+            printf("Please enter data of student: name,gender ,age,id and grades \n");
+            scanf("%s %s %d %d %f",&st->name,&st->gender,&st->age,&st->id,&st->grade);
+            for(int i=0; i<num_students; i++)
             {
                 if(arr[i].id == st->id)
                 {
@@ -41,20 +21,56 @@ void Add_student (student *st,student *arr)
                      break;
 
                 }
-
             }
             //if it's valid Id
 
             if(flag==0)
             { for(int i=0;i<num_students;i++)
-            {if(arr[i].id== 0 )
+            {if(arr[i].id== 0 ||arr[i].id==NULL )
+            //student *arr=(student*) realloc (arr,num_students++);
             {   arr[i]= *st;
-            printf("addition is done correctly \n");
-                break;
+
+
+                return;
 
             }
             }
+            printf("addition is done correctly \n");
             }
+
+    }
+
+void remove_student (int id, student* arr)
+    {
+        int flag=0;
+        for(int i=0; i<num_students; i++) //check if it's valid Id
+        {
+            if(id== arr[i].id)
+            {
+                flag=1;
+                //free(arr[i].name);
+                arr[i].name=NULL;
+                arr[i].age=0;
+                //free(arr[i].gender);
+                arr[i].gender=NULL;
+                arr[i].grade=0;
+                //free(arr[i].password);
+                arr[i].password=NULL;
+                arr[i].id=0;
+printf("you removed the student successfully");
+                num_students--;
+
+                  break;
+            }
+        }
+
+        if(flag==0)
+
+
+        {
+            printf("invalid Id,please try again");
+        }
+
 
     }
 //view all records
@@ -73,7 +89,7 @@ void Add_student (student *st,student *arr)
 
         float grade;
 
-         for (int i = 1; i <= num_students; i++)
+         for (int i = 0; i < num_students; i++)
         {
                 if (arr[i].id == id)
                 {
@@ -103,7 +119,7 @@ void Add_student (student *st,student *arr)
 
 
 void viewAllrecords(student *arr){
-for (int i = 1; i <= num_students; i++)
+for (int i = 0; i < num_students; i++)
     {
 if((arr+i)->id!=0){
              printf("Student name is: %s \n",(arr+i)->name);
@@ -133,29 +149,22 @@ void EditAdminPass(adminn *arr){
 
     }
 
-    void remove_student (int id, student* arr)
+    void viewStu (int id, student *arr)
     {
-        int flag=0;
-
-
-        for(int i=0; i<num_students; i++) //check if it's valid Id
+         int flag=0;
+        for(int i=0; i<num_students; i++) //check if it's valid Id so we can show data.
         {
-            if(id== arr[i].id)
+            if(id==arr[i].id)
             {
                 flag=1;
-//                free (arr);
-//                arr[i]=NULL;
-                num_students--;
-                break;
+                printf("Student name is: %s \n",arr[i].name);
+                printf("Student age is: %d \n",arr[i].age);
+                printf("Student ID is: %d \n",arr[i].id);
+                printf("Student total grade is: %f \n",arr[i].grade);
+                printf("Student gender is: %c \n",arr[i].gender);
+               break;
             }
+
+
         }
-        printf("you removed the student successfully");
-        if(flag==0)
-
-
-        {
-            printf("invalid Id,please try again");
-        }
-
-
     }

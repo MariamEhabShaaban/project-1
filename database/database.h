@@ -1,3 +1,5 @@
+#ifndef database.h
+#define database.h
 
 typedef struct BASIC_INFO{
 char *password;
@@ -15,4 +17,4 @@ int age;
 typedef struct admin{
 char *pass;
 }adminn;
-
+#endif // database

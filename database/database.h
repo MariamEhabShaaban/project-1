@@ -1,7 +1,8 @@
 
-#ifndef database.h
-#define database.h
+#ifndef database
+#define database
 #define MAXSIZE 30
+//student *arr;
 typedef struct BASIC_INFO{
 char *password;
 char *name;

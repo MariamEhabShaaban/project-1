@@ -10,12 +10,22 @@
         int flag=0;
         //check if there is student with the same id;
 
-            printf("Please enter data of student: name,gender ,age,id , grades and password \n");
+           aa: printf("Please enter data of student: gender ,age,id , grades , password and name \n");
             st->name=(char *)malloc(stringsize*sizeof(char));
-//             st->gender=(char *)malloc(stringsize*sizeof(char));
               st->password=(char *)malloc(stringsize*sizeof(char));
 
-            scanf("%s %c %d %d %f %s",st->name,&st->gender,&st->age,&st->id,&st->grade,st->password);
+
+            scanf("\n%c\n ",&st->gender);
+            scanf("%d\n ",&st->age);
+
+            scanf("%d\n",&st->id);
+             scanf("%f \n",&st->grade);
+            scanf("%s\n",st->password);
+            gets(st->name);
+            if(st->grade>100||st->grade<0){
+                printf("xxxxxxxxxxx Please enter grade between 0:100 xxxxxxxxxxx\n\n\n");
+                goto aa;
+            }
             for(int i=0; i<MAXSIZE; i++)
             {
                 if(arr[i].id == st->id)
@@ -51,16 +61,14 @@ void remove_student (int id, student* arr)
             if(id== arr[i].id)
             {
                 flag=1;
-                //free(arr[i].name);
+
                 arr[i].name=NULL;
                 arr[i].age=0;
-                //free(arr[i].gender);
-                arr[i].gender=NULL;
+                arr[i].gender=0;
                 arr[i].grade=0;
-                //free(arr[i].password);
                 arr[i].password=NULL;
                 arr[i].id=0;
-printf("you removed the student successfully");
+printf("you removed the student successfully\n");
 
                   break;
             }
@@ -75,7 +83,6 @@ printf("you removed the student successfully");
 
 
     }
-//view all records
 
 
 
@@ -84,10 +91,7 @@ printf("you removed the student successfully");
 
  void EditStuGrade(student *arr,int id){
      int flag=0;
-     /*char *pass_=(char *)malloc(10*sizeof(char));
-      printf("Enter admin password\n");
-      scanf("%s",pass_);  // in main
-        if (strcmp(pass_, array[0].pass) == 0){*/
+
 
         float grade;
 
@@ -121,7 +125,7 @@ printf("you removed the student successfully");
 
 
 void viewAllrecords(student *arr){
-for (int i = 0; i < MAXSIZE; i++)
+for (int i = 0; i < num_students; i++)
     {
 if((arr+i)->id!=0){
                 printf("Student name is: %s \n",(arr+i)->name);

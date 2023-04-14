@@ -5,50 +5,22 @@
 #include"student.h"
 #include "admin.h"
 #include "app.h"
-#define stringsize 20
 
-//#include "../student/student.c"
- //static int num_students; //Size of the memory that will be Allocated.
+
+
     static int mode; // Admin OR User?.
     int uchoice; //to choose in User mode
     int achoice; //to choose in admin mode
     int id;
 
-
-   /*int num_students; //Size of the memory that will be Allocated.
-    int mode; // Admin OR User?.
-    int uchoice; //to choose in User mode
-    int achoice; //to choose in admin mode
-    int id;*/
-
-
-   // printf("Enter the number of the Students\n");
-    //scanf("%d",&num_students);
     void MODE(){
-student *arr = (student*)malloc(num_students*sizeof(student));
+student *arr = (student*)malloc(MAXSIZE*sizeof(student));
     adminn *aAdmin= malloc(sizeof(adminn));
     (aAdmin+0)->pass="1234";
-     /*for(int i=0;i<num_students;i++){
-        (arr+i)->age=20;
-         (arr+i)->name="mariam ehab";
-          (arr+i)->grade=99.5;
-           (arr+i)->gender='F';
-            (arr+i)->password="mariam2612";
-             (arr+i)->id=i+1;
-     }
 
-
-    //Allocating Dynamic Memory for Objects and "student" is a pointer pointing to the first object.
-
-    //Checking the Succession of Allocating Memory.
-    if (arr == NULL)
-        printf("Memory is not Available");
-    if (arr != NULL)
-        printf("Allocating Memory Succeeded\n");*/
-    //End of Checking
 while(1){
        printf("=-=-=-=-=-=-=-=\n");
-    printf("[1]Admin mode press \n[2] User mode press \n[3]EXIT\n ");
+    printf("[1]Admin mode  \n[2] User mode  \n[3]EXIT\n ");
 printf("=-=-=-=-=-=-=-=\n");
   printf("choose from 1:3\n");
     scanf("%d",&mode);
@@ -142,13 +114,20 @@ case 3:
 
 
 void USER(student *arr){
+    int flag=0;
   printf("Enter your ID\n");
         scanf("%d", &id);
        char *pass = (char *)malloc(stringsize*sizeof(char));
 
         printf("Enter password %s: \n",pass);
          scanf("%s", pass);
-        if (strcmp(pass, (arr+id-1)->password) == 0){
+         for(int i=0; i<MAXSIZE; i++) //check if it's valid Id so we can show data.
+        {
+            if(id==arr[i].id)
+            {
+
+        if (strcmp(pass, arr[i].password) == 0){
+                flag=1;
 
 printf("=-=-=-=-=-=-=-=\n");
  printf("[1]To view Your Record \n");
@@ -164,36 +143,44 @@ switch(uchoice){
         case 1:
 
 
-           view_urecord(id-1, arr);
+           view_urecord(id, arr);
            break;
 
        case 2:
 
 
-           edit_upass(id-1, arr);
+           edit_upass(id, arr);
            break;
 
        case 3:
 
 
-        edit_uname(id-1, arr);
+        edit_uname(id, arr);
         break;
        default:
         printf("Enter valid choice\n");
         break;
 
 }
+
         }
-        else {
+        }
+        else{
+             printf("invalid Id\n");
+             break;
+        }
+        if(flag==0){
             printf("Wrong password\n");
+            break;
         }
 
 
 
 
-
-
+        }
 
 }
+
+
 
 

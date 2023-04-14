@@ -1,6 +1,6 @@
 
 #include "database.h" // WE CAN DELETE IT
-//#include "student.h"
+#include"student.h"
 #define stringsize 30
 
 // Fun of Viewing Records.

@@ -1,8 +1,7 @@
 
 
-#include"database.h"
+#include"../database/database.h"
 #define stringsize 30
-static  int num_students =0;
 void Add_student (student *arr,student *st); //prototype of add function
 void remove_student (int id,student *arr); //prototype of remove function
 void viewStu ( int id,student *arr);

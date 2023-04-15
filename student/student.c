@@ -1,19 +1,17 @@
 
-#include "database.h" // WE CAN DELETE IT
+#include "../database/database.h" // WE CAN DELETE IT
 #include"student.h"
 #define stringsize 30
-
+#include<string.h>
 // Fun of Viewing Records.
 void view_urecord(int id, student *students)
 { for(int i=0; i<MAXSIZE; i++) {
     if(id==students[i].id)
             {
+ printf("=-=-=-=-=-=-=-=\n");
+                printf("Student name is: %s \nStudent age is: %d \nStudent ID is: %d \nStudent total grade is: %f \nStudent gender is: %c \n",students[i].name,students[i].age,students[i].id,students[i].grade,students[i].gender);
 
-                printf("Student name is: %s \n",students[i].name);
-                printf("Student age is: %d \n",students[i].age);
-                printf("Student ID is: %d \n",students[i].id);
-                printf("Student total grade is: %f \n",students[i].grade);
-                printf("Student gender is: %c \n",students[i].gender);
+                 printf("=-=-=-=-=-=-=-=\n");
                 break;
 
             }

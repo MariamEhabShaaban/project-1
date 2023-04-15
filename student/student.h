@@ -1,5 +1,5 @@
 
-#include"database.h"
+#include"../database/database.h"
 // Fun of Viewing Records.
 void view_urecord(int id, student *students);
 

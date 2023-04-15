@@ -1,26 +1,22 @@
 
-
-#include <stdio.h>
-#include <stdlib.h>
-#include"student.h"
-#include "admin.h"
+#include"../student/student.h"
+#include "../admin/admin.h"
 #include "app.h"
 
 
-
-    static int mode; // Admin OR User?.
+ static int mode; // Admin OR User?.
     int uchoice; //to choose in User mode
     int achoice; //to choose in admin mode
     int id;
 
-    void MODE(){
+    int MODE(){
 student *arr = (student*)malloc(MAXSIZE*sizeof(student));
     adminn *aAdmin= malloc(sizeof(adminn));
     (aAdmin+0)->pass="1234";
 
 while(1){
        printf("=-=-=-=-=-=-=-=\n");
-    printf("[1]Admin mode  \n[2] User mode  \n[3]EXIT\n ");
+    printf("[1]Admin mode  \n[2]User mode  \n[3]EXIT\n ");
 printf("=-=-=-=-=-=-=-=\n");
   printf("choose from 1:3\n");
     scanf("%d",&mode);
@@ -51,7 +47,7 @@ for( tries =0;tries<3;tries++){
     char *pass_=(char *)malloc(stringsize*sizeof(char));
       printf("Enter admin password\n");
       scanf("%s",pass_);
-        if (strcmp(pass_, (ad+0)->pass) == 0)
+        if (strcmp(pass_ ,(ad+0)->pass) == 0)
             break;
         else
             printf("TRY AGAIN\n");
@@ -114,22 +110,36 @@ case 3:
 
 
 void USER(student *arr){
-    int flag=0;
-  printf("Enter your ID\n");
-        scanf("%d", &id);
-       char *pass = (char *)malloc(stringsize*sizeof(char));
 
-        printf("Enter password %s: \n",pass);
-         scanf("%s", pass);
+    idagain:printf("Enter your ID\n");
+    scanf("%d", &id);
+    char *pass = (char *)malloc(stringsize*sizeof(char));
+
          for(int i=0; i<MAXSIZE; i++) //check if it's valid Id so we can show data.
         {
+
+
             if(id==arr[i].id)
             {
+                goto PASS;
+            }
+             else{
+             printf("\n\nXXXXXXX invalid Id XXXXXXX\n\n");
+        goto idagain;
+        }
 
+  PASS:printf("Enter password : \n");
+         scanf("%s", pass);
         if (strcmp(pass, arr[i].password) == 0){
-                flag=1;
+                goto options;
+        }
+        else{
+            printf("\n\nXXXXXX Wrong password try again XXXXXX\n\n");
+            goto PASS;
+        }
+        }
 
-printf("=-=-=-=-=-=-=-=\n");
+  options:printf("=-=-=-=-=-=-=-=\n");
  printf("[1]To view Your Record \n");
         printf("[2]To Edit Your Password \n");
         printf("[3]To Edit Your Name \n");
@@ -163,23 +173,15 @@ switch(uchoice){
 
 }
 
-        }
-        }
-        else{
-             printf("invalid Id\n");
-             break;
-        }
-        if(flag==0){
-            printf("Wrong password\n");
-            break;
+
         }
 
 
 
 
-        }
 
-}
+
+
 
 
 

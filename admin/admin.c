@@ -3,42 +3,57 @@
 #include <stdlib.h>
 #include <string.h>
 #include"admin.h"
-
+static  int num_students =0;
 
     void Add_student (student *st,student *arr)
     {
-        int flag=0;
+//arr = (student*)malloc(MAXSIZE*sizeof(student));
         //check if there is student with the same id;
 
-           aa: printf("Please enter data of student: gender ,age,id , grades , password and name \n");
-            st->name=(char *)malloc(stringsize*sizeof(char));
-              st->password=(char *)malloc(stringsize*sizeof(char));
 
+st->name=(char *)malloc(stringsize*sizeof(char));
+st->password=(char *)malloc(stringsize*sizeof(char));
 
-            scanf("\n%c\n ",&st->gender);
-            scanf("%d\n ",&st->age);
-
-            scanf("%d\n",&st->id);
-             scanf("%f \n",&st->grade);
-            scanf("%s\n",st->password);
-            gets(st->name);
-            if(st->grade>100||st->grade<0){
-                printf("xxxxxxxxxxx Please enter grade between 0:100 xxxxxxxxxxx\n\n\n");
-                goto aa;
-            }
-            for(int i=0; i<MAXSIZE; i++)
+printf(" =-=-=-=-=-=-= Please enter data of student =-=-=-=-=-=-=\n");
+printf("Enter name: ");
+getchar();
+gets(st->name);
+printf("\n");
+printf("Enter  password: ");
+scanf("%s",st->password);
+printf("\n");
+printf("Enter age: ");
+scanf("%d",&st->age);
+printf("\n");
+printf("Enter gender F or M: ");
+getchar();
+scanf("%c",&st->gender);
+printf("\n");
+ iid: printf("Enter id: ");
+scanf("%d",&st->id);
+ for(int i=0; i<MAXSIZE; i++)
             {
                 if(arr[i].id == st->id)
                 {
-                    flag=1;
-                    printf("This ID is already exist,Try again \n");
-                     break;
+
+                    printf("\n\nXXXXX This ID is already exist,Try again XXXXX\n\n\n");
+
+                     goto iid;
 
                 }
             }
-            //if it's valid Id
-            if(flag==0)
-            {
+printf("\n");
+aa: printf("enter grade: ");
+scanf("%f",&st->grade);
+if(st->grade>100||st->grade<0){
+                printf("xxxxxxxxxxx Please enter grade between 0:100 xxxxxxxxxxx\n\n\n");
+                goto aa;
+            }
+printf("\n");
+
+
+
+
 
           // arr =  realloc(arr, num_students*sizeof(student));
 arr[num_students]=*st;
@@ -47,8 +62,6 @@ num_students++;
 
 
           printf("addition is done correctly \n");
-
-            }
 
 
             }
@@ -128,12 +141,13 @@ void viewAllrecords(student *arr){
 for (int i = 0; i < num_students; i++)
     {
 if((arr+i)->id!=0){
+         printf("=-=-=-=-=-=-=-=\n");
                 printf("Student name is: %s \n",(arr+i)->name);
                 printf("Student age is: %d \n",(arr+i)->age);
                 printf("Student ID is: %d \n",arr[i].id);
                 printf("Student total grade is: %f\n",arr[i].grade);
                 printf("Student gender is: %c \n",arr[i].gender);
-                printf("________________\n");
+                 printf("=-=-=-=-=-=-=-=\n");
 }
 
     }
@@ -163,11 +177,13 @@ void EditAdminPass(adminn *arr){
             if(id==arr[i].id)
             {
                 flag=1;
+ printf("=-=-=-=-=-=-=-=\n");
                 printf("Student name is: %s \n",arr[i].name);
                 printf("Student age is: %d \n",arr[i].age);
                 printf("Student ID is: %d \n",arr[i].id);
                 printf("Student total grade is: %f \n",arr[i].grade);
                 printf("Student gender is: %c \n",arr[i].gender);
+                 printf("=-=-=-=-=-=-=-=\n");
                break;
             }
 

@@ -1,26 +1,25 @@
 
 #ifndef database
 #define database
-#define MAXSIZE 30
 #include<string.h>
 #include<stdio.h>
 #include <stdlib.h>
-//student *arr;
+static long MAXSIZE =3;
+ long num_students;
+typedef struct BASIC_INFO
+{
+    char *password;
+    char *name;
+    char gender;
+    float grade;
+    int id;
+    int age;
+} student;
 
-typedef struct BASIC_INFO{
-char *password;
-char *name;
-char gender;
-float grade;
-int id;
-int age;
+student *arr;
 
-
-
-
-
-}student;
-typedef struct admin{
-char *pass;
-}adminn;
+typedef struct admin
+{
+    char *pass;
+} adminn;
 #endif // database

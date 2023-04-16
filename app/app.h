@@ -3,5 +3,5 @@
 
 
 int MODE();
-void ADMIN(adminn *ad,student *arr);
-void USER(student *arr);
+void ADMIN(adminn *arr);
+void USER();

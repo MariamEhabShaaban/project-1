@@ -4,6 +4,7 @@
 #define stringsize 30
 #include<string.h>
 // Fun of Viewing Records.
+
 void view_urecord(int id)
 {
     for(int i=0; i<num_students; i++)

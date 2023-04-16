@@ -4,7 +4,8 @@
 #include "app/app.h"
 
 int main()
-{printf("\n\n");
+{
+    printf("\n\n");
     printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
     printf("\n\t\t\t        =                  WELCOME                  =");
     printf("\n\t\t\t        =                    TO                     =");
@@ -14,5 +15,5 @@ int main()
     printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
     printf("\n\n");
     MODE();
-     return 0;
+    return 0;
 }

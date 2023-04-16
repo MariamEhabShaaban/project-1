@@ -4,8 +4,8 @@
 #include<string.h>
 #include<stdio.h>
 #include <stdlib.h>
-static long MAXSIZE =3;
- long num_students;
+extern long MAXSIZE;
+extern long num_students;
 typedef struct BASIC_INFO
 {
     char *password;

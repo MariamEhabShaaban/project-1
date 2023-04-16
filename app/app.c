@@ -6,6 +6,7 @@ int mode; // Admin OR User?.
 int uchoice; //to choose in User mode
 int achoice; //to choose in admin mode
 int id;
+
 int MODE()
 {
     arr = (student*)malloc(MAXSIZE*sizeof(student));
@@ -86,23 +87,51 @@ void ADMIN(adminn *ad)
 
             break;
         case 2:
-            printf("\n\t\t\t        Enter student ID\n");
-            printf("\n\t\t\t        ");
-            scanf("%d", &id);
+            while(1)
+            {
+                int i=0;
+                printf("\n\t\t\t        Enter student ID\n");
+                printf("\n\t\t\t        ");
+                scanf("%d", &id);
+                if(id==arr[i].id)
+                {
 
-            remove_student (id);
+                    remove_student (id);
+                    break;
+                }
+                else
+                {
+                    printf("\n\t\t\t        Invalid ID Try Again\n\n");
 
+                }
+                if(i<num_students)
+                    i++;
+            }
             break;
 
         case 3:
-            printf("\n\t\t\t        Enter student ID\n");
-            printf("\n\t\t\t        ");
-            scanf("%d", &id);
+            while(1)
+            {
+                int i=0;
+                printf("\n\t\t\t        Enter student ID\n");
+                printf("\n\t\t\t        ");
+                scanf("%d", &id);
+                if(id==arr[i].id)
+                {
 
-            viewStu(  id);
+                    viewStu (id);
+                    break;
+                }
+                else
+                {
+                    printf("\n\t\t\t        Invalid ID Try Again\n\n");
 
+                }
+                if(i<num_students)
+                    i++;
+            }
+                    break;
 
-            break;
         case 4:
             viewAllrecords();
 
@@ -112,11 +141,26 @@ void ADMIN(adminn *ad)
 
             break;
         case 6:
-            printf("\n\t\t\t        Enter student ID\n");
-            printf("\n\t\t\t        ");
-            scanf("%d", &id);
+            while(1)
+            {
+                int i=0;
+                printf("\n\t\t\t        Enter student ID\n");
+                printf("\n\t\t\t        ");
+                scanf("%d", &id);
+                if(id==arr[i].id)
+                {
 
-            EditStuGrade( id);
+                    EditStuGrade (id);
+                    break;
+                }
+                else
+                {
+                    printf("\n\t\t\t        Invalid ID Try Again\n\n");
+
+                }
+                if(i<num_students)
+                    i++;
+            }
 
             break;
         }
@@ -168,11 +212,13 @@ void USER()
     printf("\n\t\t\t        ");
     scanf("%s", pass);
 
-       for(i=0;i<num_students;i++){
-            if(strcmp(pass, arr[i].password)==  0&&i==index){
-                flag2=1;
-                break;
-            }
+    for(i=0; i<num_students; i++)
+    {
+        if(strcmp(pass, arr[i].password)==  0&&i==index)
+        {
+            flag2=1;
+            break;
+        }
 
     }
 
@@ -184,15 +230,17 @@ void USER()
         printf("\n\t\t\t        Enter password : \n");
         printf("\n\t\t\t        ");
         scanf("%s", pass);
-for(i=0;i<num_students;i++){
-            if(strcmp(pass, arr[i].password)==  0&&i==index){
+        for(i=0; i<num_students; i++)
+        {
+            if(strcmp(pass, arr[i].password)==  0&&i==index)
+            {
                 flag2=1;
                 break;
             }
 
+        }
     }
-    }
-     printf("\n\t\t\t        %d\n",index);
+
 
     printf("\n\t\t\t        =-=-=-=-=-=-=-=\n");
     printf("\n\t\t\t        [1]To view Your Record \n");

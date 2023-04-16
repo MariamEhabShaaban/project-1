@@ -30,14 +30,19 @@ void Add_student (student *st)
         printf("\n\t\t\t        ");
         scanf("%s",st->password);
         printf("\n");
-        printf("\n\t\t\t        Enter age: ");
-        printf("\n\t\t\t        ");
-        scanf("%d",&st->age);
-        printf("\n");
-        printf("\n\t\t\t        Enter gender F or M: ");
-        getchar();
-        printf("\n\t\t\t        ");
-        scanf("%c",&st->gender);
+        while(1)
+        {
+            printf("\n\t\t\t        Enter gender F or M: ");
+
+            printf("\n\t\t\t        ");
+            getchar();
+            scanf("%c",&st->gender);
+            if(st->gender=='f'||st->gender=='F'||st->gender=='m'||st->gender=='M')
+                break;
+            else
+                printf("\n\t\t\t        ERORR TRY AGAIN\n\n");
+        }
+
         printf("\n");
         printf("\n\t\t\t        Enter id: ");
         printf("\n\t\t\t        ");
@@ -90,11 +95,11 @@ void Add_student (student *st)
             }
 
             arr[num_students-1]=*st;
-//num_students++;
+
 
         }
 
-        printf("   %d   ",num_students);
+
 
         printf("\n\t\t\t        addition is done correctly \n");
         printf("\n\n\t\t\t        Do you want to add another student press Y or N \n");

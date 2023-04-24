@@ -26,6 +26,10 @@ void Add_student (student *st)
         printf("\n\t\t\t        ");
         gets(st->name);
         printf("\n");
+          printf("\n\t\t\t        Enter  age: ");
+        printf("\n\t\t\t        ");
+        scanf("%d",&st->age);
+        printf("\n");
         printf("\n\t\t\t        Enter  password: ");
         printf("\n\t\t\t        ");
         scanf("%s",st->password);

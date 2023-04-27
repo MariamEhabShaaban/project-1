@@ -89,27 +89,35 @@ void ADMIN(adminn *ad)
         case 2:
             while(1)
             {
-                int i=0,flag=0;
+                int flag=0;
                 printf("\n\t\t\t        Enter student ID\n");
                 printf("\n\t\t\t        ");
                 scanf("%d", &id);
+                for(int i=0;i<num_students;i++)
+                {
                 if(id==arr[i].id)
                 {
+                  int x=i;
+                    remove_student (id,x);
                     flag=1;
-
-                    remove_student (id,i);
                     break;
                 }
-               if(flag==0)
+
+
+               else
                 {
                     printf("\n\t\t\t        Invalid ID Try Again\n\n");
 
                 }
-                if(i<num_students)
-                    i++;
+
+                }
+
+                    if(flag==1)
+                    break;
+
+
             }
             break;
-
         case 3:
             while(1)
             {

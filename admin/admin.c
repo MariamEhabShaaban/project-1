@@ -57,7 +57,9 @@ void Add_student (student *st)
             printf("\n\n\n\t\t\t        Enter id: ");
             printf("\n\t\t\t        ");
             scanf("%d",&st->id);
-            
+              if(i<num_students)
+                    i++;
+
 
 
         }
@@ -207,7 +209,7 @@ void viewAllrecords()
             printf("\n\t\t\t        Student name is: %s \n",(arr+i)->name);
             printf("\n\t\t\t        Student age is: %d \n",(arr+i)->age);
             printf("\n\t\t\t        Student ID is: %d \n",arr[i].id);
-            printf("\n\t\t\t        Student total grade is: %f\n",arr[i].grade);
+            printf("\n\t\t\t        Student total grade is: %.2f\n",arr[i].grade);
             printf("\n\t\t\t        Student gender is: %c \n",arr[i].gender);
             printf("\n\t\t\t        =-=-=-=-=-=-=-=\n");
         }
@@ -241,24 +243,26 @@ void EditAdminPass(adminn *arr)
 
 void viewStu (int id)
 {
-
+int flag=0;
 
     for(int i=0; i<num_students; i++) //check if it's valid Id so we can show data.
     {
-        if(id==arr[i].id)
-        {
+
+         if (arr[i].id == id){
 
             printf("\n\t\t\t        =-=-=-=-=-=-=-=\n");
             printf("\n\t\t\t        Student name is: %s \n",arr[i].name);
             printf("\n\t\t\t        Student age is: %d \n",arr[i].age);
             printf("\n\t\t\t        Student ID is: %d \n",arr[i].id);
-            printf("\n\t\t\t        Student total grade is: %f \n",arr[i].grade);
+            printf("\n\t\t\t        Student total grade is: %.2f \n",arr[i].grade);
             printf("\n\t\t\t        Student gender is: %c \n",arr[i].gender);
             printf("\n\t\t\t        =-=-=-=-=-=-=-=\n");
             break;
         }
 
 
+
     }
+
 
 }

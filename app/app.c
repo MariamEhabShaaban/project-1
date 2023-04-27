@@ -112,17 +112,19 @@ void ADMIN(adminn *ad)
         case 3:
             while(1)
             {
-                int i=0;
+
+                int i=0,flag =0;
                 printf("\n\t\t\t        Enter student ID\n");
                 printf("\n\t\t\t        ");
                 scanf("%d", &id);
                 if(id==arr[i].id)
                 {
+                    flag=1;
 
                     viewStu (id);
                     break;
                 }
-                else
+                if(flag==0)
                 {
                     printf("\n\t\t\t        Invalid ID Try Again\n\n");
 
@@ -130,8 +132,7 @@ void ADMIN(adminn *ad)
                 if(i<num_students)
                     i++;
             }
-                    break;
-
+            break;
         case 4:
             viewAllrecords();
 

@@ -119,14 +119,10 @@ void Add_student (student *st)
 
 }
 
-void remove_student (int id)
+void remove_student (int id, int i)
 {
-    int flag=0;
-    for(int i=0; i<num_students; i++) //check if it's valid Id
-    {
-        if(id== arr[i].id)
-        {
-            flag=1;
+
+
 
             arr[i].name=NULL;
             arr[i].age=0;
@@ -136,16 +132,7 @@ void remove_student (int id)
             arr[i].id=0;
             printf("\n\t\t\t        you removed the student successfully\n");
 
-            break;
-        }
-    }
 
-    if(flag==0)
-
-
-    {
-        printf("\n\t\t\t        invalid Id,please try again");
-    }
 
 
 }

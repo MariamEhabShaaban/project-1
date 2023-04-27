@@ -57,7 +57,7 @@ void Add_student (student *st)
             printf("\n\n\n\t\t\t        Enter id: ");
             printf("\n\t\t\t        ");
             scanf("%d",&st->id);
-            i++;
+            
 
 
         }

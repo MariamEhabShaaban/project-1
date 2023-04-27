@@ -97,8 +97,8 @@ void ADMIN(adminn *ad)
                 {
                 if(id==arr[i].id)
                 {
-                  int x=i;
-                    remove_student (id,x);
+               
+                    remove_student (id,i);
                     flag=1;
                     break;
                 }
